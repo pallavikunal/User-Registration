@@ -7,12 +7,10 @@
         <div class="container">
             <div class="row">
                 <div class="span8">
-
                 </div><section class="content-header">
                     <h1>
                         User Details 
                     </h1>
-
                 </section>
 
                 <!-- Main content -->
@@ -33,7 +31,7 @@
                                     </div>
                                     <div style="margin-top:10px;">
                                         <strong>Date Of Birth:</strong>
-                                         {{ date('F d, Y', strtotime($userDetail->dateOfBirth)) }}                                        
+                                        {{ date('F d, Y', strtotime($userDetail->dateOfBirth)) }}                                        
                                     </div>
                                     <div style="margin-top:10px;">
                                         <strong>Identify type:</strong>
@@ -76,6 +74,6 @@
             </div>
         </div>
     </body>
-<footer>
+    <footer>
     </footer>
 </html>

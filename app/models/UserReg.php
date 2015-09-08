@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models;
-
 use Eloquent;
 
 class UserReg extends Eloquent {

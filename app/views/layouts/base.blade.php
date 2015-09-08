@@ -15,4 +15,3 @@
         @include('includes.base.footer')
     </footer>
 </html>
-

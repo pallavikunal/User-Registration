@@ -6,8 +6,6 @@ use App\Models\UserReg;
 use App\Models\Degree;
 use App\Models\Identity;
 
-//use App\Libraries\Helpers\Helper;
-
 class UserRegRepository {
 
     /**
@@ -33,9 +31,9 @@ class UserRegRepository {
     }
 
     /**
-     * Get all Degree
+     * Get all Degree to show in dropdown
      *
-     * @return json
+     * @return Array
      */
     public function getAllDegree() {
         $degrees = Degree::all(array('id', 'degreeName'))->toArray();
@@ -50,9 +48,10 @@ class UserRegRepository {
     }
 
     /**
-     * Get user by ID
-     *
-     * @return json
+     * Get user by IDs
+     *  
+     * @param INT $id
+     * @return instance 
      */
     public function getUserById($id) {
         
@@ -62,7 +61,7 @@ class UserRegRepository {
     /**
      * Get Identity by ID
      *
-     * @return json
+     * @return instance 
      */
     public function getIdentityById($id) {
         
@@ -72,15 +71,11 @@ class UserRegRepository {
 
     /**
      * Store User into database
-     *
-     * @param array $input
-     * @return boolean
+     *  
+     * @param Array $input
+     * @return Int
      */
     public function createUser($input) {
-//        $result = Service::validate($input);
-//        if (!is_bool($result)) {
-//            return $this->setMessage($result);
-//        }
         $dateArr = explode("/",$input['dateOfBirth']);
         
         $user = new UserReg();

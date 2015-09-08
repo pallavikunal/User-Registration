@@ -4,15 +4,12 @@ namespace App\Controllers;
 
 use View;
 use Input;
-use Cache;
 use PDF;
 use Response;
 use Redirect;
-//use App\Libraries\Helpers\AjaxHelper;
-//use App\Libraries\Interfaces\AjaxInterface;
 use App\Repositories\UserRegRepository;
 
-class UserRegController extends \BaseController {//implements AjaxInterface {
+class UserRegController extends \BaseController {
 
     /**
      * @var object
@@ -20,19 +17,18 @@ class UserRegController extends \BaseController {//implements AjaxInterface {
      */
 
     private $user;
-
+    
     /**
-     *
-     * @param \App\Repositories\UserRepository $user
+     * 
+     * @param UserRegRepository $user
      */
     public function __construct(UserRegRepository $user) {
         $this->user = $user;
-        //$this->initializeAjax();
     }
 
     /**
      * Display a listing of the resource.
-     *
+     *  
      * @return Response
      */
     public function index() {
@@ -42,9 +38,9 @@ class UserRegController extends \BaseController {//implements AjaxInterface {
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
+     * Store user detail in database
+     * 
+     * @return response
      */
     public function store() {
         $userId = $this->user->createUser(Input::all());
@@ -82,28 +78,4 @@ class UserRegController extends \BaseController {//implements AjaxInterface {
 
         return $pdf->download('userDetail.pdf');
     }
-
-    /**
-     * Initializing ajax methods
-     *
-     */
-    public function initializeAjax() {
-        if (!Cache::has('service_change_status') && !Cache::has('service_delete')) {
-            $ajaxParam = array(
-                'service_status' => array(
-                    'controller' => get_class($this),
-                    'repository' => get_class($this->service),
-                    'action' => 'onChangeStatus'
-                ),
-                'service_delete' => array(
-                    'controller' => get_class($this),
-                    'repository' => get_class($this->service),
-                    'action' => 'onDelete'
-                ),
-            );
-            AjaxHelper::setAjaxInfo('service_change_status', $ajaxParam['service_status']);
-            AjaxHelper::setAjaxInfo('service_delete', $ajaxParam['service_delete']);
-        }
-    }
-
 }

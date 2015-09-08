@@ -1,13 +1,10 @@
 @extends('layouts.base')
-
 @section('content')
 <section class="content-header">
     <h1>
         User Registration 
     </h1>
-
 </section>
-
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -20,7 +17,7 @@
                     Thanks for Submitting Details. You can download it from below Link:<br>
                     <a href="{{ URL::route('downloadPDF', $userDetail->id)}}"/>Click Here to Download</a>
                 </div><!-- /.box-body -->
-                </div>
+            </div>
         </div>
     </div>
 </section><!-- /.content -->

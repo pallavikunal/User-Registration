@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('/', function()
-//{
-//	return View::make('hello');
-//});
 Route::Resource('/', 'App\Controllers\UserRegController');
 Route::get('user/{userId}/downloadHere', array('as' => 'user.downloadHere', 'uses' => 'App\Controllers\UserRegController@downloadFromHere'));
 Route::get('pdf/{userId}', array('as' => 'downloadPDF', 'uses' => 'App\Controllers\UserRegController@generatePDF'));

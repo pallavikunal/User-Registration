@@ -1,12 +1,10 @@
 @extends('layouts.base')
-
 @section('content')
 <section class="content-header">
     <h1>
         User Registration 
     </h1>
 </section>
-
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -14,10 +12,12 @@
             <div class="box box-primary">
                 <div class="box-header">&nbsp;</div><!-- /.box-header -->
                 <!-- form start -->
-                <?php $rule = ['firstName' => 'required|max:100|alpha', 'lastName' => 'required|max:100|alpha', 'dateOfBirth' => 'required|date',
-                    'identifyType' => 'required', 'identifyNumber' => 'required|regex:/^[0-9\-]*$/|max:20', 'issuedDate' => 'required|date', 
+                <?php
+                $rule = ['firstName' => 'required|max:100|alpha', 'lastName' => 'required|max:100|alpha', 'dateOfBirth' => 'required|date',
+                    'identifyType' => 'required', 'identifyNumber' => 'required|regex:/^[0-9\-]*$/|max:20', 'issuedDate' => 'required|date',
                     'validUpto' => 'required|date', 'address' => 'required|regex:/^[a-zA-Z0-9\. ]*$/|max:500',
-                    'permanentAddress' => 'required|regex:/^[a-zA-Z0-9\. ]*$/|max:500','contactNumber' => 'required|numeric', 'degree' => 'required'] ?>
+                    'permanentAddress' => 'required|regex:/^[a-zA-Z0-9\. ]*$/|max:500', 'contactNumber' => 'required|numeric', 'degree' => 'required']
+                ?>
                 {{ Form::open(array('route' => 'store'), $rule) }}               
                 <div class="box-body">
                     <div class="form-group">
